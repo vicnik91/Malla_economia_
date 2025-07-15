@@ -304,6 +304,7 @@ document.getElementById("restaurarEstado").addEventListener("click", () => {
 });
 
 document.getElementById("descargarPDF").addEventListener("click", () => {
+  const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
   doc.text("Malla Curricular - Economía UNAP", 10, 10);
   doc.text(`Créditos aprobados: ${creditosAprobados}`, 10, 20);
@@ -311,21 +312,6 @@ document.getElementById("descargarPDF").addEventListener("click", () => {
   doc.save("malla_curricular.pdf");
 });
 
-    const doc = new PDF();
-    doc.text("Malla Curricular - Economía UNAP", 10, 10);
-    doc.text(`Créditos aprobados: ${creditosAprobados}`, 10, 20);
-    doc.html(document.querySelector("#malla"), {
-      callback: function (doc) {
-        doc.save("malla_curricular.pdf");
-      },
-      x: 10,
-      y: 30
-    });
-  });
-});
-
-renderizarMalla(); que renderiza la malla, gestiona los estados, calcula los créditos aprobados, etc.
-</script>
-
+renderizarMalla();
 </body>
 </html>
